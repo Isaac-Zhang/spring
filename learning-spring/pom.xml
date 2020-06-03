@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>java-beans</module>
+        <module>spring-beans-demo</module>
+        <module>public-api</module>
     </modules>
     <packaging>pom</packaging>
 
