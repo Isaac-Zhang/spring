@@ -10,6 +10,10 @@ import com.liferunner.learning.spring.pojo.Person;
  **/
 public interface PersonFactory {
     default Person createPerson(){
-        return new Person();
+        Person person=new Person();
+        person.setName("i am from interface default");
+        person.setId(111L);
+        person.setAge(18);
+        return person;
     }
 }

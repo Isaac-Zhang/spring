@@ -22,6 +22,6 @@ public class PersonFactoryBean implements FactoryBean<Person> {
 
     @Override
     public boolean isSingleton() {
-        return false;
+        return true;
     }
 }
