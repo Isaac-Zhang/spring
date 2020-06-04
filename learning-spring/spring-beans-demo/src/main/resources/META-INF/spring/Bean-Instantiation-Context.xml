@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="personFactory" class="com.liferunner.learning.spring.factory.DefaultPersonFactory"/>
+    <!-- 使用上面声明的 bean 作为下面bean 的工厂-->
+    <bean id="person-from-instantiation-method" factory-bean="personFactory" factory-method="createPerson" />
+
+    <bean id="person-from-static-method" class="com.liferunner.learning.spring.pojo.Person" factory-method="createPerson"/>
+
+    <!--使用 FactoryBean 来创建bean-->
+    <bean id="personFactoryBean" class="com.liferunner.learning.spring.factory.PersonFactoryBean"/>
+
+</beans>

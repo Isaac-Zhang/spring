@@ -44,4 +44,12 @@ public class Person {
                 ", age=" + age +
                 '}';
     }
+
+    public static Person createPerson(){
+        Person person=new Person();
+        person.setName("张盼");
+        person.setId(6L);
+        person.setAge(18);
+        return person;
+    }
 }

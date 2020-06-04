@@ -15,7 +15,9 @@
     <packaging>pom</packaging>
 
     <properties>
+        <java.compiler.version>1.8</java.compiler.version>
         <spring.version>5.2.6.RELEASE</spring.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
     </properties>
 
     <!-- add real dependency-->
@@ -46,5 +48,20 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>${java.compiler.version}</source>
+                    <target>${java.compiler.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
