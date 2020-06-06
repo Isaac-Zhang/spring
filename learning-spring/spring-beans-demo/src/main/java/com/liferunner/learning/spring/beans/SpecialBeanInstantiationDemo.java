@@ -2,7 +2,6 @@ package com.liferunner.learning.spring.beans;
 
 import com.liferunner.learning.spring.factory.DefaultPersonFactory;
 import com.liferunner.learning.spring.factory.PersonFactory;
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
