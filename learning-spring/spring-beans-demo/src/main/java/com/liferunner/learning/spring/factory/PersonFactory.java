@@ -11,4 +11,5 @@ import com.liferunner.learning.spring.pojo.Person;
 public interface PersonFactory {
     Person createPerson();
     void initializeBeanCustomMethod();
+    void destroyBeanCustomMethod();
 }

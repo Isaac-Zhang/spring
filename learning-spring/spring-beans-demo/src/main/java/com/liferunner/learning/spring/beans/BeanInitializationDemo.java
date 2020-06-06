@@ -1,6 +1,7 @@
 package com.liferunner.learning.spring.beans;
 
 import com.liferunner.learning.spring.config.ConfigDemoClass;
+import com.liferunner.learning.spring.factory.PersonFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -21,7 +22,12 @@ public class BeanInitializationDemo {
 
         applicationContext.register(ConfigDemoClass.class);
         applicationContext.refresh();
+        System.out.println("Spring ApplicationContext 已启动...");
+        PersonFactory personFactory = applicationContext.getBean(PersonFactory.class);
+        System.out.println(personFactory);
+        System.out.println("Spring ApplicationContext 准备关闭...");
         applicationContext.close();
+        System.out.println("Spring ApplicationContext 已关闭！");
     }
 
 }

@@ -22,7 +22,5 @@ public class BeanInstantiationDemo {
         System.out.println(personFromInstantiationMethod);
         System.out.println(personFromStaticMethod);
         System.out.println(personFactoryBean);
-
-
     }
 }
