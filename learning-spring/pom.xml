@@ -11,6 +11,7 @@
         <module>java-beans</module>
         <module>spring-beans-demo</module>
         <module>public-api</module>
+        <module>dependency-lookup</module>
     </modules>
     <packaging>pom</packaging>
 
