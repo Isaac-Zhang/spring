@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="classpath:/META-INF/spring/Bean-Definition-demo-Context.xml"/>
+
+    <bean id="person" class="com.liferunner.learning.spring.pojo.Person" autowire-candidate="false">
+        <property name="id" value="2"/>
+        <property name="name" value="isaac"/>
+        <property name="age" value="31"/>
+    </bean>
+
+    <!-- setter 注入-->
+    <bean class="com.liferunner.learning.spring.dependency.injection.PersonHolder"
+        autowire="byType"
+    >
+<!--        <property name="person" ref="personForDemo"/>-->
+    </bean>
+</beans>
