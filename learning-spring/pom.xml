@@ -12,6 +12,7 @@
         <module>spring-beans-demo</module>
         <module>public-api</module>
         <module>dependency-lookup</module>
+        <module>dependency-injection</module>
     </modules>
     <packaging>pom</packaging>
 
