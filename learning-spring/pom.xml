@@ -13,6 +13,7 @@
         <module>public-api</module>
         <module>dependency-lookup</module>
         <module>dependency-injection</module>
+        <module>computer-basic</module>
     </modules>
     <packaging>pom</packaging>
 
