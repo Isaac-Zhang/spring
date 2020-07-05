@@ -69,12 +69,12 @@ public class Person implements BeanNameAware {
     }
 
     @PostConstruct
-    private void init(){
+    public void init(){
         System.out.println("User ["+beanName+"] 初始化中...");
     }
 
     @PreDestroy
-    private void destroy(){
+    public void destroy(){
         System.out.println("User ["+beanName+"] 销毁中...");
     }
 
