@@ -10,12 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dependency-source</artifactId>
-
-    <properties>
-        <java.version>8</java.version>
-        <encoding>UTF-8</encoding>
-    </properties>
+    <artifactId>bean-scope</artifactId>
 
     <dependencies>
         <dependency>
