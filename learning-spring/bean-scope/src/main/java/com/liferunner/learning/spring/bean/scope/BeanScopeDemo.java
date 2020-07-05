@@ -8,6 +8,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 
+import java.util.Collection;
+import java.util.Map;
+
 /**
  * Spring Bean Scope Demo
  *
@@ -53,6 +56,12 @@ public class BeanScopeDemo {
     @Qualifier(value = "prototypePerson")
     private Person prototypePerson2;
 
+    @Autowired
+    private Map<String,Person> personMap;
+
+    @Autowired
+    private Collection<Person> personCollection;
+
     private static Person newPerson() {
         Person person = new Person();
         person.setId(System.nanoTime());
@@ -85,6 +94,8 @@ public class BeanScopeDemo {
         System.out.println("injected prototypePerson : "+ demo.prototypePerson);
         System.out.println("injected prototypePerson1 : "+ demo.prototypePerson1);
         System.out.println("injected prototypePerson2 : "+ demo.prototypePerson2);
+        System.out.println("injected personMap : "+ demo.personMap);
+        System.out.println("injected personCollection : "+ demo.personCollection);
 
     }
 }
