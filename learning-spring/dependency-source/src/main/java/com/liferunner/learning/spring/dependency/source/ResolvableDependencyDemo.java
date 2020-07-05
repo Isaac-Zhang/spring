@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 public class ResolvableDependencyDemo {
 
     @Autowired
-    private String hello;
+    private String hello; 
 
     @PostConstruct
     private void init(){
