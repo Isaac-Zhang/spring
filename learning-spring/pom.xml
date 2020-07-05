@@ -13,9 +13,10 @@
         <module>public-api</module>
         <module>dependency-lookup</module>
         <module>dependency-injection</module>
-        <module>computer-basic</module>
+<!--        <module>computer-basic</module>-->
         <module>dependency-source</module>
         <module>bean-scope</module>
+        <module>bean-scope-webservlet</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -40,6 +41,10 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- add dependency management-->
@@ -59,6 +64,11 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
         </dependencies>
