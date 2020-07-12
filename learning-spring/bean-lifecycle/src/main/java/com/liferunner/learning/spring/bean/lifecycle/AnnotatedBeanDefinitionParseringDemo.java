@@ -1,7 +1,6 @@
 package com.liferunner.learning.spring.bean.lifecycle;
 
 import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
