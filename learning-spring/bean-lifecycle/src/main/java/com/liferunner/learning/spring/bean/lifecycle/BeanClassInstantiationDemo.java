@@ -29,6 +29,20 @@ public class BeanClassInstantiationDemo {
                 }
                 return super.postProcessBeforeInstantiation(beanClass, beanName);
             }
+
+            @Override
+            public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+                if(ObjectUtils.nullSafeEquals(beanName,"personForDemo") && (bean.getClass().equals(Person.class))){
+                    Person person = ((Person) bean);
+                    person.setAge(18);
+                    person.setId(999L);
+                    //返回 false ,阻止后续的属性赋值（填入）
+                    //AbstractAutowireCapableBeanFactory.populateBean
+                    //InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation
+                    return false;
+                }
+                return super.postProcessAfterInstantiation(bean, beanName);
+            }
         });
 
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
