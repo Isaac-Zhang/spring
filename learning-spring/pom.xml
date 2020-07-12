@@ -17,6 +17,7 @@
         <module>dependency-source</module>
         <module>bean-scope</module>
         <module>bean-scope-webservlet</module>
+        <module>bean-lifecycle</module>
     </modules>
     <packaging>pom</packaging>
 

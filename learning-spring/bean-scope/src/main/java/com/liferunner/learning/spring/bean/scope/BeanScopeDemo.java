@@ -28,8 +28,6 @@ public class BeanScopeDemo implements DisposableBean {
         return newPerson();
     }
 
-    ;
-
     // 作用域查找
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
