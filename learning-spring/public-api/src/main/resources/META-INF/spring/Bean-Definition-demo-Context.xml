@@ -18,4 +18,6 @@
         <property name="desc" value="超级用户描述"/>
     </bean>
 
+    <bean id="personHolder" class="com.liferunner.learning.spring.pojo.PersonHolder"
+          autowire="constructor" />
 </beans>
