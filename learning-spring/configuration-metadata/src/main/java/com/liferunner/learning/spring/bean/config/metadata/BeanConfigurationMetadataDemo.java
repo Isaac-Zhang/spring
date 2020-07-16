@@ -23,7 +23,10 @@ public class BeanConfigurationMetadataDemo {
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(Person.class);
         beanDefinitionBuilder.addPropertyValue("name", "isaac");
         AbstractBeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
+        // AttributeAccessor 作为 Bean 的额外参数传递
         beanDefinition.setAttribute("name", "张盼");
+        // BeanMetadataElement 作为 Bean 元素来源的辅助判断
+        beanDefinition.setSource(BeanConfigurationMetadataDemo.class);
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         beanFactory.addBeanPostProcessor(new BeanPostProcessor() {
             @Override
@@ -32,6 +35,11 @@ public class BeanConfigurationMetadataDemo {
                         && bean.getClass().equals(Person.class)) {
                     BeanDefinition bd = beanFactory.getBeanDefinition(beanName);
                     System.out.println(bd.getAttribute("name"));
+                    // 使用上面的 BeanMetadataElement 的 source 来作为特定判断依据
+                    if (bd.getSource().equals(BeanConfigurationMetadataDemo.class)) {
+                        Person person = (Person) bean;
+                        person.setName(bd.getAttribute("name").toString());
+                    }
                 }
                 return bean;
             }
