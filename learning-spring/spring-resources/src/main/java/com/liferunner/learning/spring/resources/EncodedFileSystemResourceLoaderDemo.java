@@ -19,7 +19,7 @@ import java.io.Reader;
  * @since 2020/7/19
  **/
 public class EncodedFileSystemResourceLoaderDemo {
-
+ 
     public static void main(String[] args) {
         String currentFilePath = "/" + System.getProperty("user.dir") + "/spring-resources/src/main/java/com/liferunner/learning/spring/resources/EncodedFileSystemResourceLoaderDemo.java";
         FileSystemResourceLoader fileSystemResourceLoader = new FileSystemResourceLoader();
