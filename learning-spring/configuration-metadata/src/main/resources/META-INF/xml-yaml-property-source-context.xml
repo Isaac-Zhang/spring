@@ -6,4 +6,8 @@
     <bean id="xmlYamlPerson" class="org.springframework.beans.factory.config.YamlMapFactoryBean">
         <property name="resources" value="classpath:/META-INF/person.yaml"/>
     </bean>
+
+    <bean id="yamlPropertiesPerson" class="org.springframework.beans.factory.config.YamlPropertiesFactoryBean">
+        <property name="resources" value="classpath:/META-INF/person.yaml"/>
+    </bean>
 </beans>

@@ -4,6 +4,7 @@ import com.liferunner.learning.spring.pojo.Person;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
 /**
@@ -33,6 +34,7 @@ public class AnnotatedYamlPropertySourceDemo {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(AnnotatedYamlPropertySourceDemo.class);
+        context.register(PersonYamlConfig.class);
         context.refresh();
         Person p = context.getBean(Person.class);
         System.out.println(p);

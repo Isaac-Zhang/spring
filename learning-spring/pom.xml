@@ -19,6 +19,7 @@
         <module>bean-scope-webservlet</module>
         <module>bean-lifecycle</module>
         <module>configuration-metadata</module>
+        <module>spring-resources</module>
     </modules>
     <packaging>pom</packaging>
 
