@@ -16,6 +16,6 @@ public class Handler extends URLStreamHandler {
 
     @Override
     protected URLConnection openConnection(URL u) throws IOException {
-        return null;
+        return new IsaacxUrlConnection(u);
     }
 }

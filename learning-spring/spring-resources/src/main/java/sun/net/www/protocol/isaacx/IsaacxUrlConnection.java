@@ -29,6 +29,12 @@ public class IsaacxUrlConnection extends URLConnection {
         this.resource = resource;
     }
 
+    protected IsaacxUrlConnection(URL url) {
+        super(url);
+        this.resource = new ClassPathResource(url.getPath());
+    }
+
+
     @Override
     public void connect() throws IOException {
 
