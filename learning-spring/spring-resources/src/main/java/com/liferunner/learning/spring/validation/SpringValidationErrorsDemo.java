@@ -48,13 +48,14 @@ public class SpringValidationErrorsDemo {
         }
     }
 
-    private static MessageSource getMessageSource() {
+    static MessageSource getMessageSource() {
         StaticMessageSource messageSource = new StaticMessageSource();
         // 对象错误信息
         messageSource.addMessage("person.required", Locale.getDefault(), "当前用户不能为空！");
 
         // 属性错误信息
         messageSource.addMessage("name.required", Locale.getDefault(), "用户名不能为空！");
+        messageSource.addMessage("age.min", Locale.getDefault(), "18禁！");
         return messageSource;
     }
 
