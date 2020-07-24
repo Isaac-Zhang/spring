@@ -2,7 +2,6 @@ package com.liferunner.learning.spring.validation;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;

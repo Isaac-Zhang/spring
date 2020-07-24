@@ -17,4 +17,5 @@
     <bean id="methodValidateAop" class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor">
         <property name="validator" ref="validator"/>
     </bean>
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"/>
 </beans>
