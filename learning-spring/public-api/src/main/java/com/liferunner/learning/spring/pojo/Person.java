@@ -16,6 +16,17 @@ public class Person implements BeanNameAware {
     private long id;
     private String name;
     private int age;
+    private Family family;
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", family=" + family +
+                '}';
+    }
 
     /**
      * 当前bean 的名称
@@ -46,18 +57,17 @@ public class Person implements BeanNameAware {
         this.age = age;
     }
 
-    @Override
-    public void setBeanName(String name) {
-        this.beanName = name;
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
     }
 
     @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+    public void setBeanName(String name) {
+        this.beanName = name;
     }
 
     public static Person createPerson() {
