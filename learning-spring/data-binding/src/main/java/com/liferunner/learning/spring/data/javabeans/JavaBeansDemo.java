@@ -19,6 +19,7 @@ public class JavaBeansDemo {
     public static void main(String[] args) throws IntrospectionException {
         Person person = new Person();
 
+        // Introspector.getBeanInfo 第二个参数 stopClass 用于排除父类的干扰，比如 Object.class
         BeanInfo beanInfo = Introspector.getBeanInfo(Person.class);
         System.out.println(beanInfo);
         PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
@@ -28,6 +29,16 @@ public class JavaBeansDemo {
 
         System.out.println("=====================================");
         // 打印出所有的属性描述
+        /**
+         * java.beans.PropertyDescriptor
+         *  [
+         *      name=class;
+         *      propertyType=class java.lang.Class;
+         *      readMethod=public final native java.lang.Class java.lang.Object.getClass()
+         *  ]
+         */
+        // 因为所有的 java 类均继承自 java.lang.Object
+        // class 属性来自于 Object#getClass
         Stream.of(beanInfo.getPropertyDescriptors()).forEach(System.out::println);
     }
 }
