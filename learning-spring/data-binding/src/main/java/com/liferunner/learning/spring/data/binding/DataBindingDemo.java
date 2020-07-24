@@ -4,6 +4,7 @@ import com.liferunner.learning.spring.pojo.Family;
 import com.liferunner.learning.spring.pojo.Person;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValues;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 
 import java.util.HashMap;
@@ -52,9 +53,22 @@ public class DataBindingDemo {
         // 默认为 false, 需要配合上面的 setAutoGrowNestedPaths 来生效
         dataBinder.setIgnoreInvalidFields(true);
 
-//        dataBinder.setAllowedFields;
-//        dataBinder.setDisallowedFields
-//        dataBinder.setRequiredFields
+        // 用户设定 字段白名单
+        // dataBinder.setAllowedFields;
+
+        // 用于设定 字段黑名单
+        // dataBinder.setDisallowedFields
+
+        // 用于设定哪些字段属性是必须要设定的,我们不设置age,然后查看 BindResult,就会发现报错信息
+        /**
+         * org.springframework.validation.BeanPropertyBindingResult: 1 errors
+         * Field error in object 'person' on field 'age': rejected value [];
+         * codes [required.person.age,required.age,required.int,required];
+         * arguments [org.springframework.context.support.DefaultMessageSourceResolvable:
+         * codes [person.age,age]; arguments []; default message [age]];
+         * default message [Field 'age' is required]
+         */
+        dataBinder.setRequiredFields("id","name","age");
 
         // 根据 Map 创建 PropertyValues
         PropertyValues propertyValues = new MutablePropertyValues(values);
@@ -63,5 +77,9 @@ public class DataBindingDemo {
 
         // 输出绑定后的 POJO
         System.out.println(person);
+
+        // 绑定结果（包含错误信息，code，不会抛出异常）
+        BindingResult result = dataBinder.getBindingResult();
+        System.out.println(result);
     }
 }
