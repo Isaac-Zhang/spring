@@ -4,6 +4,7 @@ import org.springframework.beans.factory.BeanNameAware;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.Properties;
 
 /**
  * 个体类对象
@@ -17,16 +18,7 @@ public class Person implements BeanNameAware {
     private String name;
     private int age;
     private Family family;
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", family=" + family +
-                '}';
-    }
+    private Properties contextProperties;
 
     /**
      * 当前bean 的名称
@@ -70,6 +62,14 @@ public class Person implements BeanNameAware {
         this.beanName = name;
     }
 
+    public Properties getContextProperties() {
+        return contextProperties;
+    }
+
+    public void setContextProperties(Properties contextProperties) {
+        this.contextProperties = contextProperties;
+    }
+
     public static Person createPerson() {
         Person person = new Person();
         person.setName("张盼");
@@ -88,4 +88,14 @@ public class Person implements BeanNameAware {
         System.out.println("User ["+beanName+"] 销毁中...");
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", family=" + family +
+                ", contextProperties=" + contextProperties +
+                '}';
+    }
 }

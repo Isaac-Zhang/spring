@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 将自定义的 CustomPropertyEditorRegistrar 注册为 Spring Bean -->
+    <bean class="com.liferunner.learning.spring.data.conversion.CustomPropertyEditorRegistrar"/>
+
+    <bean id="person" class="com.liferunner.learning.spring.pojo.Person" autowire-candidate="false">
+        <property name="id" value="1"/>
+        <property name="name" value="zp"/>
+        <property name="contextProperties">
+            <value>
+                id = 2
+                name=isa
+                age =16
+            </value>
+        </property>
+    </bean>
+</beans>
