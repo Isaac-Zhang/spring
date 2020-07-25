@@ -19,6 +19,7 @@ public class Person implements BeanNameAware {
     private int age;
     private Family family;
     private Properties contextProperties;
+    private String propertiesToText;
 
     /**
      * 当前bean 的名称
@@ -70,6 +71,14 @@ public class Person implements BeanNameAware {
         this.contextProperties = contextProperties;
     }
 
+    public String getPropertiesToText() {
+        return propertiesToText;
+    }
+
+    public void setPropertiesToText(String propertiesToText) {
+        this.propertiesToText = propertiesToText;
+    }
+
     public static Person createPerson() {
         Person person = new Person();
         person.setName("张盼");
@@ -96,6 +105,7 @@ public class Person implements BeanNameAware {
                 ", age=" + age +
                 ", family=" + family +
                 ", contextProperties=" + contextProperties +
+                ", propertiesToText='" + propertiesToText + '\'' +
                 '}';
     }
 }

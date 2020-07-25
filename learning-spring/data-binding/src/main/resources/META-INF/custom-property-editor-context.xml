@@ -2,14 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 	    http://www.springframework.org/schema/context
-	    http://www.springframework.org/schema/context/spring-context.xsd">
+	    http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- 将自定义的 CustomPropertyEditorRegistrar 注册为 Spring Bean -->
     <bean class="com.liferunner.learning.spring.data.conversion.CustomPropertyEditorRegistrar"/>
+
+    <!-- 声明一个 Properties 配置 -->
+    <util:properties id="propertiesFactoryBean">
+        <prop key="id">3</prop>
+        <prop key="name">tt</prop>
+    </util:properties>
 
     <bean id="person" class="com.liferunner.learning.spring.pojo.Person" autowire-candidate="false">
         <property name="id" value="1"/>
@@ -20,6 +29,14 @@
                 name=isa
                 age =16
             </value>
+        </property>
+        <property name="propertiesToText" ref="propertiesFactoryBean"/>
+    </bean>
+
+    <!-- 声明一个自定义类型转换器, 并且通过 ConversionServiceFactoryBean 来注入 conversionService Bean -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="com.liferunner.learning.spring.data.conversion.PropertiesToStringConditionalGenericConverter"/>
         </property>
     </bean>
 </beans>
