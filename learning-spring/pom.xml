@@ -21,6 +21,7 @@
         <module>configuration-metadata</module>
         <module>spring-resources</module>
         <module>data-binding</module>
+        <module>spring-event</module>
     </modules>
     <packaging>pom</packaging>
 
