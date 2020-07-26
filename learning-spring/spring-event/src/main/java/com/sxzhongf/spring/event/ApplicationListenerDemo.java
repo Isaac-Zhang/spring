@@ -37,6 +37,8 @@ public class ApplicationListenerDemo {
                 println("基于接口 ApplicationListener 的事件:" + event);
             }
         });
+        applicationContext.register(CustomApplicationListener.class);
+        applicationContext.register(CustomRefreshedApplicationListener.class);
         // 启动 Spring 应用上下文
         applicationContext.refresh();
         // 关闭 Spring 应用上下文
@@ -88,5 +90,21 @@ public class ApplicationListenerDemo {
     @Order(Integer.MAX_VALUE - 1)
     public void onRefreshedSortedEvent1(ContextRefreshedEvent contextRefreshedEvent) {
         println("onRefreshedSortedEvent1");
+    }
+
+    static class CustomApplicationListener implements ApplicationListener {
+
+        @Override
+        public void onApplicationEvent(ApplicationEvent event) {
+            println("CustomApplicationListener:" + event);
+        }
+    }
+
+    static class CustomRefreshedApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
+
+        @Override
+        public void onApplicationEvent(ContextRefreshedEvent event) {
+            println("CustomRefreshedApplicationListener:" + event);
+        }
     }
 }
