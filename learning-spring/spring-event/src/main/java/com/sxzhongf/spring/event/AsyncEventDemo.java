@@ -4,15 +4,13 @@ import com.liferunner.learning.spring.pojo.Person;
 import com.sxzhongf.spring.event.custom.SxzhongfEventListener;
 import com.sxzhongf.spring.event.custom.SxzhongfSpringEvent;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.ApplicationEventPublisherAware;
+import org.springframework.context.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
+import org.springframework.util.ErrorHandler;
 
 import javax.annotation.PostConstruct;
 import java.util.concurrent.ExecutorService;
@@ -51,7 +49,14 @@ public class AsyncEventDemo {
                     executorService.shutdown();
                 }
             });
+
+            simpleApplicationEventMulticaster.setErrorHandler(t -> System.err.println(t));
         }
+
+        context.addApplicationListener((ApplicationListener<SxzhongfSpringEvent>) event -> {
+            throw new RuntimeException("this is for testing error.");
+        });
+
         context.publishEvent(new SxzhongfSpringEvent(Person.createPerson()));
         context.close();
     }
