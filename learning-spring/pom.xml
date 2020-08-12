@@ -22,6 +22,7 @@
         <module>spring-resources</module>
         <module>data-binding</module>
         <module>spring-event</module>
+        <module>spring-condition</module>
     </modules>
     <packaging>pom</packaging>
 
