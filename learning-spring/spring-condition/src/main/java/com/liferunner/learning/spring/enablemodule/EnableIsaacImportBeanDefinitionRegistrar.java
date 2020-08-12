@@ -1,4 +1,4 @@
-package com.liferunner.learning.spring.condition;
+package com.liferunner.learning.spring.enablemodule;
 
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;

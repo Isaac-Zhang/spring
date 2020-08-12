@@ -1,4 +1,4 @@
-package com.liferunner.learning.spring.condition;
+package com.liferunner.learning.spring.enablemodule;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
