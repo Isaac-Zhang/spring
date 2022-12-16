@@ -28,7 +28,7 @@
 
     <properties>
         <java.compiler.version>1.8</java.compiler.version>
-        <spring.version>5.2.6.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <encoding>UTF-8</encoding>
     </properties>
